@@ -29,4 +29,10 @@ def add_dieta():
 @main.route("/dashboard", methods=["GET"])
 @login_required
 def dashboard():
-    return jsonify({"message": "Dashboard"})
+    if not current_user.is_authenticated:
+        return jsonify({"message": "Usuário não autenticado"}), 401
+
+    user_id = current_user.id
+    dietas = Dieta.query.filter_by(user_id=user_id).all()
+
+    return jsonify({"dieta": [dieta.get_dict() for dieta in dietas]})

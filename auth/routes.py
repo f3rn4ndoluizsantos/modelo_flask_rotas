@@ -71,6 +71,10 @@ def detail_user_logged():
 @auth.route("/logout")
 @login_required
 def logout():
+    if not current_user.is_authenticated:
+        return jsonify({"message": "Usuário não autenticado"}), 401
+
     logout_user()
-    flash("Você foi desconectado.", "success")
-    return redirect(url_for("auth.login"))
+    return jsonify({"message": "Logout bem-sucedido!"}), 200
+    # flash("Você foi desconectado.", "success")
+    # return redirect(url_for("auth.login"))
