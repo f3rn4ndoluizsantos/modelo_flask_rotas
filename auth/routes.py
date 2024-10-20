@@ -24,25 +24,6 @@ def add_user():
     return jsonify({"message": "Usuário adicionado com sucesso!"}), 201
 
 
-# @auth.route("/login", methods=["GET", "POST"])
-# def login():
-#     if request.method == "POST":
-#         email = request.form["email"]
-#         password = request.form["password"]
-#         user = User.query.filter_by(email=email).first()
-#         if (
-#             user and user.password == password
-#         ):  # Aqui você deve usar hashing para senhas!
-#             login_user(user)
-#             flash("Login bem-sucedido!", "success")
-#             return redirect(
-#                 url_for("main.index")
-#             )  # Redireciona para a página principal após login
-#         else:
-#             flash("Credenciais inválidas.", "danger")
-#     return render_template("login.html")
-
-
 @auth.route("/login", methods=["POST"])
 def login():
     data = request.get_json()
