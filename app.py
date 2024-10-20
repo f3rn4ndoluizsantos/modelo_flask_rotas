@@ -4,6 +4,7 @@ from flask import Flask
 from flask_login import LoginManager
 from models import User
 from database import db
+from flask_migrate import Migrate
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "s3cr3t"
@@ -14,6 +15,8 @@ app.config["SQLALCHEMY_DATABASE_URI"] = (
 login_manager = LoginManager(app)
 db.init_app(app)
 login_manager.login_view = "auth.login"  # Define a rota de login
+
+migrate = Migrate(app, db)
 
 from auth.routes import auth as auth_blueprint
 from main.routes import main as main_blueprint
