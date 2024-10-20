@@ -18,8 +18,15 @@ def add_dieta():
     nome = data.get("nome")
     descricao = data.get("descricao")
     is_diet = data.get("is_diet")
+    data_hora_refeicao = data.get("data_hora_refeicao")
 
-    dieta = Dieta(user_id=user_id, nome=nome, descricao=descricao, is_diet=is_diet)
+    dieta = Dieta(
+        user_id=user_id,
+        nome=nome,
+        descricao=descricao,
+        is_diet=is_diet,
+        data_hora_refeicao=data_hora_refeicao,
+    )
     db.session.add(dieta)
     db.session.commit()
 
