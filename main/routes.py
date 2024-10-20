@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, jsonify, request
 from flask_login import login_required, current_user
-from models import Dieta
+from models.dieta import Dieta
 from database import db
 
 main = Blueprint("main", __name__)
