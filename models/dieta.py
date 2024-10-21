@@ -8,7 +8,7 @@ class Dieta(db.Model):
     descricao = db.Column(db.String(150), nullable=False)
     is_diet = db.Column(db.Boolean, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    data_hora_refeicao = db.Column(db.Date, nullable=False)
+    data_hora_refeicao = db.Column(db.DateTime, nullable=False)
     created_at = db.Column(
         db.DateTime, nullable=False, default=db.func.current_timestamp()
     )

@@ -8,12 +8,12 @@ from flask_migrate import Migrate
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "s3cr3t"
-# app.config["SQLALCHEMY_DATABASE_URI"] = (
-#     "mysql+pymysql://root:admin123@127.0.0.1:3306/flask-diet"
-# )
 app.config["SQLALCHEMY_DATABASE_URI"] = (
-    "postgresql+psycopg2://neondb_owner:5KuXsldDeiF0@ep-rapid-scene-a50s1gou.us-east-2.aws.neon.tech/neondb?sslmode=require"
+    "mysql+pymysql://root:admin123@127.0.0.1:3306/flask-diet"
 )
+# app.config["SQLALCHEMY_DATABASE_URI"] = (
+#     "postgresql+psycopg2://neondb_owner:5KuXsldDeiF0@ep-rapid-scene-a50s1gou.us-east-2.aws.neon.tech/neondb?sslmode=require"
+# )
 
 login_manager = LoginManager(app)
 db.init_app(app)

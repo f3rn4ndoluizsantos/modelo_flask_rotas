@@ -49,7 +49,7 @@ def detail_user_logged():
     return jsonify(user.get_dict()), 200
 
 
-@auth.route("/logout")
+@auth.route("/logout", methods=["GET"])
 @login_required
 def logout():
     if not current_user.is_authenticated:
